@@ -51,9 +51,9 @@ CREATE TABLE IF NOT EXISTS instrument_test_mapping (
     UNIQUE(connection_id, instrument_test_code)
 );
 
-CREATE INDEX idx_hl7_conn_lab ON hl7_connections(lab_id);
-CREATE INDEX idx_hl7_conn_status ON hl7_connections(status);
-CREATE INDEX idx_hl7_log_conn ON hl7_message_log(connection_id);
-CREATE INDEX idx_hl7_log_date ON hl7_message_log(created_at DESC);
-CREATE INDEX idx_hl7_log_status ON hl7_message_log(status);
-CREATE INDEX idx_instrument_mapping_conn ON instrument_test_mapping(connection_id);
+CREATE INDEX IF NOT EXISTS idx_hl7_conn_lab ON hl7_connections(lab_id);
+CREATE INDEX IF NOT EXISTS idx_hl7_conn_status ON hl7_connections(status);
+CREATE INDEX IF NOT EXISTS idx_hl7_log_conn ON hl7_message_log(connection_id);
+CREATE INDEX IF NOT EXISTS idx_hl7_log_date ON hl7_message_log(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_hl7_log_status ON hl7_message_log(status);
+CREATE INDEX IF NOT EXISTS idx_instrument_mapping_conn ON instrument_test_mapping(connection_id);

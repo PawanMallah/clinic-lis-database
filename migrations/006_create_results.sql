@@ -61,12 +61,12 @@ CREATE TABLE IF NOT EXISTS critical_alerts (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_results_order ON test_results(order_id);
-CREATE INDEX idx_results_order_test ON test_results(order_test_id);
-CREATE INDEX idx_results_lab ON test_results(lab_id);
-CREATE INDEX idx_results_status ON test_results(status);
-CREATE INDEX idx_results_flag ON test_results(flag);
-CREATE INDEX idx_results_critical ON test_results(is_critical) WHERE is_critical = true;
-CREATE INDEX idx_verifications_result ON result_verifications(result_id);
-CREATE INDEX idx_critical_alerts_lab ON critical_alerts(lab_id);
-CREATE INDEX idx_critical_alerts_unack ON critical_alerts(acknowledged_at) WHERE acknowledged_at IS NULL;
+CREATE INDEX IF NOT EXISTS idx_results_order ON test_results(order_id);
+CREATE INDEX IF NOT EXISTS idx_results_order_test ON test_results(order_test_id);
+CREATE INDEX IF NOT EXISTS idx_results_lab ON test_results(lab_id);
+CREATE INDEX IF NOT EXISTS idx_results_status ON test_results(status);
+CREATE INDEX IF NOT EXISTS idx_results_flag ON test_results(flag);
+CREATE INDEX IF NOT EXISTS idx_results_critical ON test_results(is_critical) WHERE is_critical = true;
+CREATE INDEX IF NOT EXISTS idx_verifications_result ON result_verifications(result_id);
+CREATE INDEX IF NOT EXISTS idx_critical_alerts_lab ON critical_alerts(lab_id);
+CREATE INDEX IF NOT EXISTS idx_critical_alerts_unack ON critical_alerts(acknowledged_at) WHERE acknowledged_at IS NULL;

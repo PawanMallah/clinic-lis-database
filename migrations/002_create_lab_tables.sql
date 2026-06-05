@@ -31,5 +31,5 @@ CREATE TABLE IF NOT EXISTS lab_users (
     UNIQUE(lab_id, user_id)
 );
 
-CREATE INDEX idx_lab_users_lab_id ON lab_users(lab_id);
-CREATE INDEX idx_lab_users_user_id ON lab_users(user_id);
+CREATE INDEX IF NOT EXISTS idx_lab_users_lab_id ON lab_users(lab_id);
+CREATE INDEX IF NOT EXISTS idx_lab_users_user_id ON lab_users(user_id);

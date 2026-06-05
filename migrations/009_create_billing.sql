@@ -93,14 +93,14 @@ CREATE TABLE IF NOT EXISTS lab_reports (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_lab_invoices_lab ON lab_invoices(lab_id);
-CREATE INDEX idx_lab_invoices_order ON lab_invoices(order_id);
-CREATE INDEX idx_lab_invoices_status ON lab_invoices(status);
-CREATE INDEX idx_lab_invoices_date ON lab_invoices(created_at DESC);
-CREATE INDEX idx_invoice_items_invoice ON lab_invoice_items(invoice_id);
-CREATE INDEX idx_reagent_lab ON reagent_inventory(lab_id);
-CREATE INDEX idx_reagent_status ON reagent_inventory(status);
-CREATE INDEX idx_reagent_expiry ON reagent_inventory(expiry_date);
-CREATE INDEX idx_reagent_consumption ON reagent_consumption_log(reagent_id);
-CREATE INDEX idx_lab_reports_order ON lab_reports(order_id);
-CREATE INDEX idx_lab_reports_lab ON lab_reports(lab_id);
+CREATE INDEX IF NOT EXISTS idx_lab_invoices_lab ON lab_invoices(lab_id);
+CREATE INDEX IF NOT EXISTS idx_lab_invoices_order ON lab_invoices(order_id);
+CREATE INDEX IF NOT EXISTS idx_lab_invoices_status ON lab_invoices(status);
+CREATE INDEX IF NOT EXISTS idx_lab_invoices_date ON lab_invoices(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_invoice_items_invoice ON lab_invoice_items(invoice_id);
+CREATE INDEX IF NOT EXISTS idx_reagent_lab ON reagent_inventory(lab_id);
+CREATE INDEX IF NOT EXISTS idx_reagent_status ON reagent_inventory(status);
+CREATE INDEX IF NOT EXISTS idx_reagent_expiry ON reagent_inventory(expiry_date);
+CREATE INDEX IF NOT EXISTS idx_reagent_consumption ON reagent_consumption_log(reagent_id);
+CREATE INDEX IF NOT EXISTS idx_lab_reports_order ON lab_reports(order_id);
+CREATE INDEX IF NOT EXISTS idx_lab_reports_lab ON lab_reports(lab_id);

@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS webhook_delivery_log (
     success BOOLEAN DEFAULT false
 );
 
-CREATE INDEX idx_api_keys_lab ON api_keys(lab_id);
-CREATE INDEX idx_api_keys_hash ON api_keys(api_key_hash);
-CREATE INDEX idx_webhooks_lab ON webhooks(lab_id);
-CREATE INDEX idx_webhook_log_webhook ON webhook_delivery_log(webhook_id);
-CREATE INDEX idx_webhook_log_date ON webhook_delivery_log(delivered_at DESC);
+CREATE INDEX IF NOT EXISTS idx_api_keys_lab ON api_keys(lab_id);
+CREATE INDEX IF NOT EXISTS idx_api_keys_hash ON api_keys(api_key_hash);
+CREATE INDEX IF NOT EXISTS idx_webhooks_lab ON webhooks(lab_id);
+CREATE INDEX IF NOT EXISTS idx_webhook_log_webhook ON webhook_delivery_log(webhook_id);
+CREATE INDEX IF NOT EXISTS idx_webhook_log_date ON webhook_delivery_log(delivered_at DESC);

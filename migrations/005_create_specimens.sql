@@ -34,8 +34,8 @@ CREATE TABLE IF NOT EXISTS specimen_tracking (
     notes TEXT
 );
 
-CREATE INDEX idx_specimens_barcode ON specimens(barcode);
-CREATE INDEX idx_specimens_order ON specimens(order_id);
-CREATE INDEX idx_specimens_status ON specimens(status);
-CREATE INDEX idx_specimens_lab ON specimens(lab_id);
-CREATE INDEX idx_specimen_tracking_specimen ON specimen_tracking(specimen_id);
+CREATE INDEX IF NOT EXISTS idx_specimens_barcode ON specimens(barcode);
+CREATE INDEX IF NOT EXISTS idx_specimens_order ON specimens(order_id);
+CREATE INDEX IF NOT EXISTS idx_specimens_status ON specimens(status);
+CREATE INDEX IF NOT EXISTS idx_specimens_lab ON specimens(lab_id);
+CREATE INDEX IF NOT EXISTS idx_specimen_tracking_specimen ON specimen_tracking(specimen_id);

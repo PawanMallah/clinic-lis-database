@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS lab_order_tests (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_lab_orders_lab ON lab_orders(lab_id);
-CREATE INDEX idx_lab_orders_patient ON lab_orders(patient_id);
-CREATE INDEX idx_lab_orders_status ON lab_orders(status);
-CREATE INDEX idx_lab_orders_date ON lab_orders(created_at DESC);
-CREATE INDEX idx_order_tests_order ON lab_order_tests(order_id);
-CREATE INDEX idx_order_tests_status ON lab_order_tests(status);
+CREATE INDEX IF NOT EXISTS idx_lab_orders_lab ON lab_orders(lab_id);
+CREATE INDEX IF NOT EXISTS idx_lab_orders_patient ON lab_orders(patient_id);
+CREATE INDEX IF NOT EXISTS idx_lab_orders_status ON lab_orders(status);
+CREATE INDEX IF NOT EXISTS idx_lab_orders_date ON lab_orders(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_order_tests_order ON lab_order_tests(order_id);
+CREATE INDEX IF NOT EXISTS idx_order_tests_status ON lab_order_tests(status);

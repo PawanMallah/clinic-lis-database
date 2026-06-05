@@ -6,11 +6,15 @@ SET search_path TO lis, public;
 DO $$ BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'order_status') THEN
         CREATE TYPE order_status AS ENUM (
+            'ordered',
             'pending',
+            'collecting',
             'collected',
             'received',
             'in_progress',
             'completed',
+            'verified',
+            'reported',
             'cancelled',
             'rejected'
         );
@@ -18,8 +22,8 @@ DO $$ BEGIN
 END $$;
 
 DO $$ BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'priority') THEN
-        CREATE TYPE priority AS ENUM (
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'order_priority') THEN
+        CREATE TYPE order_priority AS ENUM (
             'routine',
             'urgent',
             'stat',
@@ -31,6 +35,7 @@ END $$;
 DO $$ BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'specimen_status') THEN
         CREATE TYPE specimen_status AS ENUM (
+            'pending',
             'pending_collection',
             'collected',
             'in_transit',

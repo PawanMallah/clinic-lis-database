@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS test_reference_ranges (
     notes TEXT
 );
 
-CREATE INDEX idx_test_master_lab_id ON test_master(lab_id);
-CREATE INDEX idx_test_master_code ON test_master(code);
-CREATE INDEX idx_test_master_department ON test_master(department);
-CREATE INDEX idx_test_parameters_test_id ON test_parameters(test_id);
-CREATE INDEX idx_test_reference_ranges_parameter_id ON test_reference_ranges(parameter_id);
+CREATE INDEX IF NOT EXISTS idx_test_master_lab_id ON test_master(lab_id);
+CREATE INDEX IF NOT EXISTS idx_test_master_code ON test_master(code);
+CREATE INDEX IF NOT EXISTS idx_test_master_department ON test_master(department);
+CREATE INDEX IF NOT EXISTS idx_test_parameters_test_id ON test_parameters(test_id);
+CREATE INDEX IF NOT EXISTS idx_test_reference_ranges_parameter_id ON test_reference_ranges(parameter_id);

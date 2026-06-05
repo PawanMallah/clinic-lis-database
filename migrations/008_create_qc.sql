@@ -65,10 +65,10 @@ CREATE TABLE IF NOT EXISTS qc_blocks (
     is_active BOOLEAN DEFAULT true
 );
 
-CREATE INDEX idx_qc_materials_lab ON qc_materials(lab_id);
-CREATE INDEX idx_qc_targets_material ON qc_target_values(material_id);
-CREATE INDEX idx_qc_records_lab ON qc_records(lab_id);
-CREATE INDEX idx_qc_records_test ON qc_records(test_id);
-CREATE INDEX idx_qc_records_date ON qc_records(run_date DESC);
-CREATE INDEX idx_qc_records_status ON qc_records(status);
-CREATE INDEX idx_qc_blocks_active ON qc_blocks(lab_id, is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_qc_materials_lab ON qc_materials(lab_id);
+CREATE INDEX IF NOT EXISTS idx_qc_targets_material ON qc_target_values(material_id);
+CREATE INDEX IF NOT EXISTS idx_qc_records_lab ON qc_records(lab_id);
+CREATE INDEX IF NOT EXISTS idx_qc_records_test ON qc_records(test_id);
+CREATE INDEX IF NOT EXISTS idx_qc_records_date ON qc_records(run_date DESC);
+CREATE INDEX IF NOT EXISTS idx_qc_records_status ON qc_records(status);
+CREATE INDEX IF NOT EXISTS idx_qc_blocks_active ON qc_blocks(lab_id, is_active) WHERE is_active = true;
