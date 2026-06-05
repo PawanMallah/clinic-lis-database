@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 -- Migration 008: Quality Control tables
 
 CREATE TABLE IF NOT EXISTS qc_materials (

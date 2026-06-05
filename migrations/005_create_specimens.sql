@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 CREATE TABLE IF NOT EXISTS specimens (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     lab_id UUID NOT NULL REFERENCES labs(id),

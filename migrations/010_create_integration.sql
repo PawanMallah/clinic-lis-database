@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 -- Migration 010: Integration API tables (API keys, webhooks)
 
 CREATE TABLE IF NOT EXISTS api_keys (

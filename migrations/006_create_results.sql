@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 -- Migration 006: Test results and verification tables
 
 CREATE TABLE IF NOT EXISTS test_results (

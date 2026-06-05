@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 -- Migration 007: HL7 instrument connections and message logging
 
 CREATE TABLE IF NOT EXISTS hl7_connections (

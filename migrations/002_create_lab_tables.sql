@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 -- Lab Tables
 -- Run: psql -U postgres -d lis_db -f 002_create_lab_tables.sql
 

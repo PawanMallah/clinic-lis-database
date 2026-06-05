@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 -- Test Master Tables
 -- Run: psql -U postgres -d lis_db -f 003_create_test_master.sql
 

@@ -1,3 +1,5 @@
+SET search_path TO lis, public;
+
 -- LIS Enums
 -- Run: psql -U postgres -d lis_db -f 001_create_enums.sql
 
